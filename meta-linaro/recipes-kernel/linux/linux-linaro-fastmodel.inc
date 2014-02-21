@@ -5,10 +5,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
 inherit kernel siteinfo
 
-PV = "3.11+git${SRCPV}"
+PV = "3.13+3.14-rc3+git${SRCPV}"
 
-SRCREV_bootwrapper = "${AUTOREV}"
-SRCREV_kernel = "${AUTOREV}"
+SRCREV_bootwrapper = "73ecb28f15a4c92562573efa1a701043b4a826ac"
+SRCREV_kernel = "68be59587608134e35b5f2cc8f200713c7db2b61"
 SRCREV_FORMAT = "kernel"
 
 S = "${WORKDIR}/git"

@@ -9,7 +9,7 @@ inherit update-rc.d
 SRC_URI = "git://git.linaro.org/arm/ds5/gator.git;protocol=http \
            file://gator.init "
 
-SRCREV = "${AUTOREV}"
+SRCREV = "33bef9ed7feca41e7cd6de8bf5d80052669278d3"
 
 S = "${WORKDIR}/git"
 

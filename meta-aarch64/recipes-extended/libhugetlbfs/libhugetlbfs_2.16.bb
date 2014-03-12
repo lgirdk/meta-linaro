@@ -9,7 +9,7 @@ HOMEPAGE = "http://libhugetlbfs.sourceforge.net/"
 LICENSE = "LGPL-2.1"
 LIC_FILES_CHKSUM = "file://LGPL-2.1;md5=2d5025d4aa3495befef8f17206a5b0a1"
 
-SRCREV = "${AUTOREV}"
+SRCREV = "b7a37b8b4f219e8b39223157ac311f9e3dc384ec"
 PV = "2.16+git${SRCPV}"
 PR = "r1"
 

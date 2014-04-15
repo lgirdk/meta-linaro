@@ -27,6 +27,7 @@ SRC_URI = "http://releases.linaro.org/${MMYY}/components/toolchain/eglibc-linaro
            file://0001-eglibc-run-libm-err-tab.pl-with-specific-dirs-in-S.patch \
            file://fix-tibetian-locales.patch \
            file://0001-ARM-Pass-dl_hwcap-to-IFUNC-resolver.patch \
+           file://make-4.patch \
           "
 
 SRC_URI[md5sum] = "3effe2d563db9dcf6f789db647d1b03d"

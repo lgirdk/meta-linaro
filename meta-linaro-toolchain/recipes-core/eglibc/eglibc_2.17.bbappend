@@ -1,6 +1,6 @@
 MMYY = "13.07"
 RELEASE = "20${MMYY}-2"
-PR = "r5"
+PR = "r6"
 
 SRC_URI = "http://releases.linaro.org/${MMYY}/components/toolchain/eglibc-linaro/eglibc-linaro-${PV}-${RELEASE}.tar.bz2 \
            file://eglibc-svn-arm-lowlevellock-include-tls.patch \
@@ -26,6 +26,7 @@ SRC_URI = "http://releases.linaro.org/${MMYY}/components/toolchain/eglibc-linaro
            file://tzselect-awk.patch \
            file://0001-eglibc-run-libm-err-tab.pl-with-specific-dirs-in-S.patch \
            file://fix-tibetian-locales.patch \
+           file://make-4.patch \
           "
 
 SRC_URI[md5sum] = "6968b95121db1cffd147e07d6c55bffd"

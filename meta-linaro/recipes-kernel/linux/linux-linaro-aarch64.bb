@@ -3,7 +3,7 @@ DESCRIPTION = "Linaro recipe for Aarch64 fast model kernels"
 SRCREV_kernel="3f169e1854aa8b7b555391b661f13349920cfbbb"
 PV = "3.14+git${SRCPV}"
 
-SRC_URI_append = " git://git.linaro.org/git/kernel/linux-linaro-tracking.git;protocol=http;branch=linux-linaro;name=kernel "
+SRC_URI_append = " git://git.linaro.org/git/kernel/linux-linaro-tracking.git;protocol=http;name=kernel;nobranch=1 "
 
 include linaro-kernel.inc
 include bootwrapper.inc

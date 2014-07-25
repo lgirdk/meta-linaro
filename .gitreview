@@ -1,4 +1,5 @@
 [gerrit]
 host=review.linaro.org
 port=29418
+defaultbranch=daisy
 project=openembedded/meta-linaro

@@ -28,6 +28,9 @@ SRC_URI = "http://cbuild.validation.linaro.org/snapshots/eglibc-${PV}-${RELEASE}
            file://0001-R_ARM_TLS_DTPOFF32.patch \
            file://0001-eglibc-run-libm-err-tab.pl-with-specific-dirs-in-S.patch \
            file://fix-tibetian-locales.patch \
+           file://ppce6500-32b_slow_ieee754_sqrt.patch \
+           file://grok_gold.patch \
+           file://CVE-2014-5119.patch \
           "
 
 SRC_URI[md5sum] = "4d9a406039cd33e14349a63773daac61"

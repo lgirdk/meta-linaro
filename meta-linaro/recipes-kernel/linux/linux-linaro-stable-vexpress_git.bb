@@ -2,6 +2,7 @@ DESCRIPTION = "Linaro Stable Kernel For Vexpress/KVM"
 
 require linaro-kernel.inc
 
+SRCREV = "05f74e8baccb60882ace4d0165887368e8143f3f"
 PV = "3.10+git${SRCPV}"
 
 KERNEL_DEVICETREE = "vexpress-v2p-ca15-tc1.dtb"

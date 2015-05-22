@@ -34,6 +34,7 @@ SRC_URI = "\
      file://binutils-xlp-support.patch \
      file://tlsdesc_plt-aarch64_be.patch \
      file://replace_macros_with_static_inline.patch \
+     file://0001-Fix-MMIX-build-breakage-from-bfd_set_section_vma-cha.patch \
      "
 
 BACKPORT = "\

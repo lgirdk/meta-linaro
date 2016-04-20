@@ -307,7 +307,7 @@ PKGV_gdbserver = "${ELT_VER_GDBSERVER}"
 ALLOW_EMPTY_${PN}-mtrace = "1"
 FILES_${PN}-mtrace = "${bindir}/mtrace"
 
-FILES_libgcov-dev = "${libdir}/${TARGET_SYS}/${BINV}/libgcov.a"
+FILES_libgcov-dev = "${libdir}/libgcov.a"
 
 FILES_libsegfault = "${base_libdir}/libSegFault*"
 

@@ -17,7 +17,7 @@ LIC_FILES_CHKSUM="\
     "
 
 SRC_URI = "\
-     http://releases.linaro.org/${MMYY}/components/toolchain/binutils-linaro/binutils-linaro-${BPV}-${RELEASE}.tar.xz \
+     http://releases.linaro.org/archive/${MMYY}/components/toolchain/binutils-linaro/binutils-linaro-${BPV}-${RELEASE}.tar.xz \
      file://binutils-uclibc-100-uclibc-conf.patch \
      file://binutils-uclibc-300-001_ld_makefile_patch.patch \
      file://binutils-uclibc-300-006_better_file_error.patch \

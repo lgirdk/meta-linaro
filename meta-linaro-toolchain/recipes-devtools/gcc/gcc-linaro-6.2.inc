@@ -82,7 +82,9 @@ SRC_URI = "\
            file://0047-libgcc_s-Use-alias-for-__cpu_indicator_init-instead-.patch \
            ${BACKPORTS} \
 "
-BACKPORTS = ""
+BACKPORTS = "\
+           file://ubsan-fix-check-empty-string.patch \
+"
 
 S = "${TMPDIR}/work-shared/gcc-${PV}-${PR}/git"
 B = "${WORKDIR}/gcc-${PV}-${RELEASE}/build.${HOST_SYS}.${TARGET_SYS}"

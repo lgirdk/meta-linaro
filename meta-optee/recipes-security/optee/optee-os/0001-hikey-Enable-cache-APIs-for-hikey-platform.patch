@@ -1,0 +1,29 @@
+From 6571543970b88c13a4452e6b8b3db1ae41823efc Mon Sep 17 00:00:00 2001
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 27 Feb 2018 16:26:34 +0000
+Subject: [PATCH] hikey: Enable cache APIs for hikey platform.
+
+When decrypting into SDP buffers TA's like Playready
+and Widevine need to be able to flush the cache.
+
+Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+---
+ core/arch/arm/plat-hikey/conf.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/core/arch/arm/plat-hikey/conf.mk b/core/arch/arm/plat-hikey/conf.mk
+index 8a8ef2f..ebac1c7 100644
+--- a/core/arch/arm/plat-hikey/conf.mk
++++ b/core/arch/arm/plat-hikey/conf.mk
+@@ -11,6 +11,8 @@ $(call force,CFG_PM_STUBS,y)
+ $(call force,CFG_SECURE_TIME_SOURCE_CNTPCT,y)
+ $(call force,CFG_WITH_ARM_TRUSTED_FW,y)
+ 
++CFG_CACHE_API ?= y
++
+ ta-targets = ta_arm32
+ 
+ ifeq ($(CFG_ARM64_core),y)
+-- 
+2.7.4
+

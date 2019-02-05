@@ -12,6 +12,9 @@ ELT_TARGET_SYS_aarch64 ?= "aarch64-linux-gnu"
 ELT_TARGET_SYS = "${TARGET_SYS}"
 TARGET_PREFIX = "${ELT_TARGET_SYS}-"
 
+EAT_LIBDIR_arm = "lib"
+EAT_LIBDIR_aarch64 = "lib64"
+
 GCCMULTILIB_forcevariable = "--disable-multilib"
 IMAGE_LINGUAS_forcevariable = ""
 

@@ -3,6 +3,8 @@ require recipes-devtools/gcc/gcc-common.inc
 BASEPV = "8.3"
 PV = "arm-${BASEPV}"
 
+CVE_VERSION = "${BASEPV}"
+
 MMYY = "19.03"
 RELEASE = "20${MMYY}"
 PR = "r${RELEASE}"

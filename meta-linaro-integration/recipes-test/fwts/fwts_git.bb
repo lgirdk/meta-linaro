@@ -22,10 +22,10 @@ inherit autotools pkgconfig
 
 CFLAGS += "-I${STAGING_INCDIR}/json-c -Wno-error=unknown-pragmas"
 
-FILES_${PN} += "${libdir}/fwts/lib*${SOLIBS}"
-FILES_${PN}-dev += "${libdir}/fwts/lib*${SOLIBSDEV} ${libdir}/fwts/lib*.la"
-FILES_${PN}-staticdev += "${libdir}/fwts/lib*a"
-FILES_${PN}-dbg += "${libdir}/fwts/.debug"
+FILES:${PN} += "${libdir}/fwts/lib*${SOLIBS}"
+FILES:${PN}-dev += "${libdir}/fwts/lib*${SOLIBSDEV} ${libdir}/fwts/lib*.la"
+FILES:${PN}-staticdev += "${libdir}/fwts/lib*a"
+FILES:${PN}-dbg += "${libdir}/fwts/.debug"
 
 TOOLCHAIN = "gcc"
 

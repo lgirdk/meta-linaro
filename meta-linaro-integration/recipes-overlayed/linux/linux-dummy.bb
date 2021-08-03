@@ -14,9 +14,9 @@ PACKAGES_DYNAMIC += "^kernel-image-.*"
 PACKAGES_DYNAMIC += "^kernel-firmware-.*"
 
 PACKAGES += "kernel-modules"
-FILES_kernel-modules = ""
-ALLOW_EMPTY_kernel-modules = "1"
-DESCRIPTION_kernel-modules = "Kernel modules meta package"
+FILES:kernel-modules = ""
+ALLOW_EMPTY:kernel-modules = "1"
+DESCRIPTION:kernel-modules = "Kernel modules meta package"
 
 # Set a fake kernel version to make various checks happy
 KERNEL_VERSION = "3.18"

@@ -18,4 +18,4 @@ do_install() {
     ${MAKE} NO_PYTHON=1 prefix=${prefix} plugin_dir=${libdir}/trace-cmd/plugins DESTDIR=${D} install
 }
 
-FILES_${PN}-dbg += "${libdir}/trace-cmd/plugins/.debug/"
+FILES:${PN}-dbg += "${libdir}/trace-cmd/plugins/.debug/"

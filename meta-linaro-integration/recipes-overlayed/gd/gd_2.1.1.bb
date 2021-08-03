@@ -34,9 +34,9 @@ EXTRA_OEMAKE = 'LDFLAGS="${LDFLAGS}"'
 
 PACKAGES += "${PN}-tools"
 
-FILES_${PN} = "${libdir}/lib*${SOLIBS}"
-FILES_${PN}-tools = "${bindir}/*"
+FILES:${PN} = "${libdir}/lib*${SOLIBS}"
+FILES:${PN}-tools = "${bindir}/*"
 
 PROVIDES += "${PN}-tools"
-RPROVIDES_${PN}-tools = "${PN}-tools"
-RDEPENDS_${PN}-tools = "perl perl-module-strict"
+RPROVIDES:${PN}-tools = "${PN}-tools"
+RDEPENDS:${PN}-tools = "perl perl-module-strict"

@@ -11,13 +11,13 @@ inherit kernel siteinfo
 # Set the verbosity of kernel messages during runtime
 # You can define CMDLINE_DEBUG in your local.conf or distro.conf to override this behaviour
 CMDLINE_DEBUG ?= '${@oe.utils.conditional("DISTRO_TYPE", "release", "quiet", "debug", d)}'
-CMDLINE_append = " ${CMDLINE_DEBUG} "
+CMDLINE:append = " ${CMDLINE_DEBUG} "
 
 # Kernel bootlogo is distro-specific (default is OE logo).
 # Logo resolution (qvga, vga, ...) is machine-specific.
 LOGO_SIZE ?= "."
 
-ALLOW_EMPTY_kernel-devicetree = "1"
+ALLOW_EMPTY:kernel-devicetree = "1"
 
 python __anonymous () {
 
@@ -29,7 +29,7 @@ python __anonymous () {
         d.setVar("DEPENDS", "%s dtc-native" % depends)
 }
 
-do_configure_prepend() {
+do_configure:prepend() {
     if [ -e ${WORKDIR}/defconfig ] ; then
 
         # Rename getline in ./scripts/unifdef.c
@@ -189,7 +189,7 @@ do_configure_prepend() {
     fi
 }
 
-do_configure_append() {
+do_configure:append() {
         if test -e scripts/Makefile.fwinst ; then
             sed -i -e "s:-m0644:-m 0644:g" scripts/Makefile.fwinst
         fi
@@ -199,7 +199,7 @@ do_configure_append() {
 # So explicitly enable it for that in here
 EXTRA_OEMAKE = "${PARALLEL_MAKE} "
 
-do_install_append() {
+do_install:append() {
         oe_runmake firmware_install INSTALL_MOD_PATH=${D} ARCH=$ARCH
         install -d ${D}/boot
         make -C ${S} O=${B} ARCH=$ARCH dtbs || true
@@ -212,11 +212,11 @@ do_install_append() {
 }
 
 PACKAGES =+ "${KERNEL_PACKAGE_NAME}-devicetree-overlays"
-FILES_${KERNEL_PACKAGE_NAME}-devicetree-overlays = "/lib/firmware/*.dtbo /lib/firmware/*.dts"
-FILES_${KERNEL_PACKAGE_NAME}-devicetree += "/boot/*.dtb"
+FILES:${KERNEL_PACKAGE_NAME}-devicetree-overlays = "/lib/firmware/*.dtbo /lib/firmware/*.dts"
+FILES:${KERNEL_PACKAGE_NAME}-devicetree += "/boot/*.dtb"
 
-RDEPENDS_${KERNEL_PACKAGE_NAME}-image_append = " kernel-devicetree"
-RRECOMMENDS_${KERNEL_PACKAGE_NAME}-image_append = " kernel-devicetree-overlays"
+RDEPENDS:${KERNEL_PACKAGE_NAME}-image:append = " kernel-devicetree"
+RRECOMMENDS:${KERNEL_PACKAGE_NAME}-image:append = " kernel-devicetree-overlays"
 
 # Automatically depend on lzop/lz4-native if CONFIG_KERNEL_LZO/LZ4 is enabled
 python () {

@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 inherit useradd
 
 USERADD_PACKAGES = "${PN}"
-USERADD_PARAM_${PN} = "--system --create-home --shell /bin/sh ${PN} "
+USERADD_PARAM:${PN} = "--system --create-home --shell /bin/sh ${PN} "
 
 do_configure () {
     ./configure.sh
@@ -38,5 +38,5 @@ do_install () {
 
 PACKAGES =+ "${PN}-example"
 
-FILES_${PN} = "${bindir}/trinity"
-FILES_${PN}-example = "${datadir}/${PN}"
+FILES:${PN} = "${bindir}/trinity"
+FILES:${PN}-example = "${datadir}/${PN}"

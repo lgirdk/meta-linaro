@@ -7,7 +7,7 @@ SRCREV = "b00df57e50e087151f4ca976ca2796ea105f68c1"
 
 SRC_URI = "git://git.linaro.org/kernel/linux-linaro-lng.git;branch=linux-linaro-lng-v4.1"
 
-do_configure_prepend() {
+do_configure:prepend() {
     cd ${S}
     scripts/kconfig/merge_config.sh -m arch/x86/configs/x86_64_defconfig \
      linaro/configs/ovs.conf \

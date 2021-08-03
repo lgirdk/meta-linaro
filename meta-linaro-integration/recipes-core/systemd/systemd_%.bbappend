@@ -1,1 +1,1 @@
-PACKAGECONFIG_append = " resolved networkd gcrypt"
+PACKAGECONFIG:append = " resolved networkd gcrypt"

@@ -40,17 +40,17 @@ IMAGE_INSTALL += " \
 IMAGE_INSTALL += "${@bb.utils.contains( \
                   'DISTRO_FEATURES', 'ptest', 'odp-ptest', '', d)}"
 
-IMAGE_INSTALL_append_armv7a = " \
+IMAGE_INSTALL:append:armv7a = " \
     latency-test \
     systemtap \
     trinity-example \
     "
 
-IMAGE_INSTALL_append_aarch64 = " \
+IMAGE_INSTALL:append:aarch64 = " \
     trinity-example \
     "
 
-IMAGE_INSTALL_append_qemux86 = " \
+IMAGE_INSTALL:append:qemux86 = " \
     "
 
 IMAGE_FEATURES += "\
@@ -59,20 +59,20 @@ IMAGE_FEATURES += "\
     tools-debug \
     tools-sdk \
     "
-IMAGE_FSTYPES_append_qemux86 += "cpio.gz qcow2"
-IMAGE_FSTYPES_append_qemux86-64 += "cpio.gz qcow2"
+IMAGE_FSTYPES:append:qemux86 += "cpio.gz qcow2"
+IMAGE_FSTYPES:append:qemux86-64 += "cpio.gz qcow2"
 IMAGE_FSTYPES_lng-x86-64 = "tar.gz cpio.gz"
 IMAGE_FSTYPES_lng-rt-x86-64 = "tar.gz cpio.gz"
 
-EXTRA_IMAGE_FEATURES_append_qemux86 = " autoserial"
+EXTRA_IMAGE_FEATURES:append:qemux86 = " autoserial"
 FEATURE_PACKAGES_autoserial = "auto-serial-console"
 
-IMAGE_PREPROCESS_COMMAND_qemux86 += "qemux86_fixup;"
-IMAGE_PREPROCESS_COMMAND_qemux86-64 += "qemux86_fixup;"
+IMAGE_PREPROCESS_COMMAND:qemux86 += "qemux86_fixup;"
+IMAGE_PREPROCESS_COMMAND:qemux86-64 += "qemux86_fixup;"
 
 qemux86_fixup() {
         # The hostname can be changed by using
-        # hostname_pn-base-files = "linaro"
+        # hostname:pn-base-files = "linaro"
         # See base-files recipe
         echo "linaro" > ${IMAGE_ROOTFS}${sysconfdir}/hostname
 }

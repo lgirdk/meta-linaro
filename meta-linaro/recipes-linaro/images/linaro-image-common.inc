@@ -2,12 +2,12 @@ inherit core-image
 
 IMAGE_FEATURES += "ssh-server-openssh nfs-server package-management"
 
-HUGETLB_armv7a = "libhugetlbfs-tests"
-HUGETLB_aarch64 = "libhugetlbfs-tests"
+HUGETLB:armv7a = "libhugetlbfs-tests"
+HUGETLB:aarch64 = "libhugetlbfs-tests"
 HUGETLB ?= ""
 
-FWTS_armv7a = ""
-FWTS_armv7ab = ""
+FWTS:armv7a = ""
+FWTS:armv7ab = ""
 FWTS ?= "fwts"
 
 IMAGE_INSTALL += " \

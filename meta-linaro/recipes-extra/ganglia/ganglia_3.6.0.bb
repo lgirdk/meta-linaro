@@ -30,12 +30,12 @@ inherit pkgconfig autotools-brokensep python3native update-rc.d
 # ltmain.sh (and others) in libmetrics and as such the build will
 # fail.  We explicitly force regeneration of that directory.
 
-do_configure_append() {
+do_configure:append() {
        (cd ${S} ; autoreconf -fvi )
        (cd ${S}/libmetrics ; autoreconf -fvi)
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${sysconfdir}/init.d
     # gmetad expects the following directory and owned by user 'nobody'
     install -o nobody -d ${D}${localstatedir}/lib/${PN}/rrds
@@ -55,16 +55,16 @@ do_install_append() {
 
 PACKAGES =+ "gmetad"
 
-RDEPENDS_${PN} = "gmetad"
+RDEPENDS:${PN} = "gmetad"
 
 BBCLASSEXTEND = "native"
 
-FILES_gmetad = "\
+FILES:gmetad = "\
     ${sbindir}/gmetad \
     ${sysconfdir}/init.d/gmetad \
 "
 
 INITSCRIPT_PACKAGES = "${PN} gmetad"
-INITSCRIPT_NAME_ganglia = "gmond"
-INITSCRIPT_NAME_gmetad = "gmetad"
+INITSCRIPT_NAME:ganglia = "gmond"
+INITSCRIPT_NAME:gmetad = "gmetad"
 INITSCRIPT_PARAMS = "defaults 66"

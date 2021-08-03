@@ -18,6 +18,6 @@ do_install() {
     rmdir ${D}${libdir}
 }
 
-RDEPENDS_${PN} = "trace-cmd"
+RDEPENDS:${PN} = "trace-cmd"
 
 FILESPATH = "${FILE_DIRNAME}/trace-cmd"

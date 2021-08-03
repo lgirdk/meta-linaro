@@ -15,10 +15,10 @@ MACHINEOVERRIDES .= "${@bb.utils.contains("TUNE_FEATURES", "ilp32", ":aarchilp32
 
 # Little Endian base configs
 AVAILTUNES += "aarch64 aarch64_be aarch64_ilp32 aarch64_be_ilp32"
-TUNE_FEATURES_tune-aarch64 ?= "aarch64"
-TUNE_FEATURES_tune-aarch64_be ?= "${TUNE_FEATURES_tune-aarch64} bigendian"
-TUNE_FEATURES_tune-aarch64_ilp32 ?= "aarch64 ilp32"
-TUNE_FEATURES_tune-aarch64_be_ilp32 ?= "${TUNE_FEATURES_tune-aarch64} bigendian ilp32"
+TUNE_FEATURES:tune-aarch64 ?= "aarch64"
+TUNE_FEATURES:tune-aarch64_be ?= "${TUNE_FEATURES:tune-aarch64} bigendian"
+TUNE_FEATURES:tune-aarch64_ilp32 ?= "aarch64 ilp32"
+TUNE_FEATURES:tune-aarch64_be_ilp32 ?= "${TUNE_FEATURES:tune-aarch64} bigendian ilp32"
 
 ARMPKGSFX_ENDIAN = "${@bb.utils.contains("TUNE_FEATURES", "bigendian", "_be", "", d)}"
 ARMPKGSFX_ILP32 = "${@bb.utils.contains("TUNE_FEATURES", "ilp32", "_ilp32", "", d)}"

@@ -14,5 +14,5 @@ S = "${WORKDIR}/git"
 
 inherit autotools
 
-FILES_${PN} += "${libdir}/daq/daq_odp.so ${libdir}/daq/daq_odp.la"
-FILES_${PN}-dbg += "${libdir}/daq/.debug/daq_odp.so"
+FILES:${PN} += "${libdir}/daq/daq_odp.so ${libdir}/daq/daq_odp.la"
+FILES:${PN}-dbg += "${libdir}/daq/.debug/daq_odp.so"

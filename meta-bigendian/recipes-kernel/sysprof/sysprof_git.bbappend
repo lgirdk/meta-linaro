@@ -1,1 +1,1 @@
-SRC_URI_append_armeb  = " file://rmb-arm.patch"
+SRC_URI:append:armeb  = " file://rmb-arm.patch"

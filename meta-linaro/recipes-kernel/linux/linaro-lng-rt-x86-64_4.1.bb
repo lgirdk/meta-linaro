@@ -7,7 +7,7 @@ SRCREV = "48ffd0d5e7b2fb6e7d47344320dbeeaf15d6fd5a"
 
 SRC_URI = "git://git.linaro.org/kernel/linux-linaro-lng.git;branch=linux-linaro-lng-v4.1-rt"
 
-do_configure_prepend() {
+do_configure:prepend() {
     cd ${S}
     scripts/kconfig/merge_config.sh -m arch/x86/configs/x86_64_defconfig \
      linaro/configs/preempt-rt.conf \

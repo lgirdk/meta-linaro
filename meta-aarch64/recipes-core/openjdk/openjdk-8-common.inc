@@ -107,7 +107,7 @@ PACKAGES = " \
 	    ${JDKPN}-jre \
 	   "
 
-FILES_${JDKPN}-jdk = " \
+FILES:${JDKPN}-jdk = " \
 		       ${JDK_HOME}/bin \
 		       ${JDK_HOME}/lib \
 		       ${JDK_HOME}/include \
@@ -117,40 +117,40 @@ FILES_${JDKPN}-jdk = " \
 		       ${JDK_HOME}/LICENSE \
 		      "
 
-FILES_${JDKPN}-doc = " \
+FILES:${JDKPN}-doc = " \
 		       ${JDK_HOME}/man \
 		      "
 
-FILES_${JDKPN}-source = " \
+FILES:${JDKPN}-source = " \
 		          ${JDK_HOME}/src.zip \
 			"
 
-FILES_${JDKPN}-demo = " \
+FILES:${JDKPN}-demo = " \
 		        ${JDK_HOME}/demo \
                         ${JDK_HOME}/sample \
                       "
 
-FILES_${JDKPN}-jtreg = " \
+FILES:${JDKPN}-jtreg = " \
                          ${JDK_HOME}/jtreg \
                       "
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	        ${JDK_HOME}/jre \
               "
 
-INSANE_SKIP_${JDKPN}-jdk = "dev-so"
-INSANE_SKIP_${JDKPN}-jre = "dev-so"
+INSANE_SKIP:${JDKPN}-jdk = "dev-so"
+INSANE_SKIP:${JDKPN}-jre = "dev-so"
 
-RPROVIDES_${JDKPN}-jre = "java2-runtime java2-vm"
-RPROVIDES_${JDKPN}-jdk = "java2-runtime java2-vm"
-RDEPENDS_${JDKPN}-demo = "java2-runtime"
+RPROVIDES:${JDKPN}-jre = "java2-runtime java2-vm"
+RPROVIDES:${JDKPN}-jdk = "java2-runtime java2-vm"
+RDEPENDS:${JDKPN}-demo = "java2-runtime"
 
-RRECOMMENDS_${JDKPN}-jre = "liberation-fonts"
-RRECOMMENDS_${JDKPN}-jdk = "liberation-fonts"
+RRECOMMENDS:${JDKPN}-jre = "liberation-fonts"
+RRECOMMENDS:${JDKPN}-jdk = "liberation-fonts"
 
 inherit update-alternatives
 
-pkg_postinst_${JDKPN}-jre () {
+pkg_postinst:${JDKPN}-jre () {
     update-alternatives --install ${bindir}/java java ${JDK_HOME}/jre/bin/java 75
     update-alternatives --install ${bindir}/jjs jjs ${JDK_HOME}/jre/bin/jjs 75
     update-alternatives --install ${bindir}/keytool keytool ${JDK_HOME}/jre/bin/keytool 75
@@ -164,7 +164,7 @@ pkg_postinst_${JDKPN}-jre () {
     update-alternatives --install ${bindir}/unpack200 unpack200 ${JDK_HOME}/jre/bin/unpack200 75
 }
 
-pkg_prerm_${JDKPN}-jre () {
+pkg_prerm:${JDKPN}-jre () {
     update-alternatives --remove java ${JDK_HOME}/jre/bin/java
     update-alternatives --remove jjs ${JDK_HOME}/jre/bin/jjs
     update-alternatives --remove keytool ${JDK_HOME}/jre/bin/keytool
@@ -178,7 +178,7 @@ pkg_prerm_${JDKPN}-jre () {
     update-alternatives --remove unpack200 ${JDK_HOME}/jre/bin/unpack200
 }
 
-pkg_postinst_${JDKPN}-jdk () {
+pkg_postinst:${JDKPN}-jdk () {
     update-alternatives --install ${bindir}/appletviewer appletviewer ${JDK_HOME}/bin/appletviewer 100
     update-alternatives --install ${bindir}/extcheck extcheck ${JDK_HOME}/bin/extcheck 100
     update-alternatives --install ${bindir}/idlj idlj ${JDK_HOME}/bin/idlj 100
@@ -222,7 +222,7 @@ pkg_postinst_${JDKPN}-jdk () {
     update-alternatives --install ${bindir}/xjc xjc ${JDK_HOME}/bin/xjc 100
 }
 
-pkg_prerm_${JDKPN}-jdk () {
+pkg_prerm:${JDKPN}-jdk () {
     update-alternatives --remove appletviewer ${JDK_HOME}/bin/appletviewer
     update-alternatives --remove extcheck ${JDK_HOME}/bin/extcheck
     update-alternatives --remove idlj ${JDK_HOME}/bin/idlj

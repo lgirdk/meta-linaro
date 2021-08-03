@@ -12,7 +12,7 @@ do_install() {
 	cp -a ${S} ${D}/opt/
 }
 
-FILES_${PN} = "/opt"
+FILES:${PN} = "/opt"
 
 # How to use it?
 #

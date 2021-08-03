@@ -36,7 +36,7 @@ do_install () {
     install -D -p -m0444 ${S}/out/ta/* ${D}${nonarch_base_libdir}/optee_armtz
 }
 
-FILES_${PN} += "${nonarch_base_libdir}/optee_armtz/"
+FILES:${PN} += "${nonarch_base_libdir}/optee_armtz/"
 
 # Imports machine specific configs from staging to build
 PACKAGE_ARCH = "${MACHINE_ARCH}"

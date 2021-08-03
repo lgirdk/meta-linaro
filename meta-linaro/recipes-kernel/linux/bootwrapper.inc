@@ -1,4 +1,4 @@
-SRC_URI_append= " git://git.kernel.org/pub/scm/linux/kernel/git/cmarinas/boot-wrapper-aarch64.git;protocol=http;branch=master;name=bootwrapper;destsuffix=bootwrapper \
+SRC_URI:append= " git://git.kernel.org/pub/scm/linux/kernel/git/cmarinas/boot-wrapper-aarch64.git;protocol=http;branch=master;name=bootwrapper;destsuffix=bootwrapper \
 "
 
 SRCREV_bootwrapper = "26a17ad59544f026878efdb0524ce66b7a314784"
@@ -13,7 +13,7 @@ export WRAPCPPFLAGS = "${CPPFLAGS}"
 export WRAPCXXFLAGS = "${CXXFLAGS}"
 export WRAPLDFLAGS = "${LDFLAGS}"
 
-do_compile_append() {
+do_compile:append() {
     oe_runmake dtbs
     cd ${BW}
 
@@ -52,11 +52,11 @@ do_compile_append() {
          IMAGE=img.axf
 }
 
-do_install_append() {
+do_install:append() {
          install -m 0644 ${BW}/img-foundation.axf ${D}/boot/img-foundation.axf
 }
 
-do_deploy_append() {
+do_deploy:append() {
     install -d ${DEPLOYDIR}
     install -m 0644 ${BW}/img.axf ${DEPLOYDIR}/img-${PV}.axf
     install -m 0644 ${BW}/linux-system-foundation.axf ${DEPLOYDIR}/linux-system-foundation-${PV}.axf
@@ -68,4 +68,4 @@ do_deploy_append() {
 }
 
 PACKAGES =+ "kernel-bootwrapper"
-FILES_kernel-bootwrapper = "/boot/img-foundation.axf"
+FILES:kernel-bootwrapper = "/boot/img-foundation.axf"

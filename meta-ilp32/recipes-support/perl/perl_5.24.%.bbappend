@@ -1,4 +1,4 @@
-do_configure_append() {
+do_configure:append() {
     # Fixups for ILP32
     # This is to do away with LIB_VERSION, no longer defined
     # by math.h in recent versions of GLIBC.

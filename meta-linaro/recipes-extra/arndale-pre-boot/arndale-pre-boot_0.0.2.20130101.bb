@@ -21,4 +21,4 @@ PACKAGE_ARCH = "all"
 
 PACKAGES = "${PN}"
 
-FILES_${PN} = "/lib/firmware/arndale/arndale-bl1.bin"
+FILES:${PN} = "/lib/firmware/arndale/arndale-bl1.bin"

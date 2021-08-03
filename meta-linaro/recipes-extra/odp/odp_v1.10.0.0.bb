@@ -34,22 +34,22 @@ do_install_ptest() {
 
 PACKAGES =+ "${PN}-bin-dbg ${PN}-helper-dbg ${PN}-ptest-dbg ${PN}-helper-staticdev ${PN}-bin ${PN}-helper ${PN}-helper-dev"
 # ODP is primarily shipped as static library plus some API test and samples/
-FILES_${PN}-staticdev += "${libdir}/libodp-linux.a"
-FILES_${PN}-helper-staticdev += "${libdir}/libodphelper-linux.a"
-FILES_${PN}-helper-dev = " \
+FILES:${PN}-staticdev += "${libdir}/libodp-linux.a"
+FILES:${PN}-helper-staticdev += "${libdir}/libodphelper-linux.a"
+FILES:${PN}-helper-dev = " \
 	${includedir}/odp/helper/* \
 	${libdir}/libodphelper-linux.la \
 	${libdir}/libodphelper-linux.so \
 	${libdir}/pkgconfig/libodphelper-linux* \
 "
-FILES_${PN}-bin = " \
+FILES:${PN}-bin = " \
 	${bindir}/* \
 "
-FILES_${PN}-bin-dbg = " \
+FILES:${PN}-bin-dbg = " \
 	${bindir}/.debug/* \
 	${exec_prefix}/src/debug/${PN}/${PV}-${PR}/git/example/* \
 "
-FILES_${PN}-dev = " \
+FILES:${PN}-dev = " \
 	${includedir}/odp.h \
 	${includedir}/odp_api.h \
 	${includedir}/odp/api/* \
@@ -57,25 +57,25 @@ FILES_${PN}-dev = " \
 	${libdir}/libodp-linux.so \
 	${libdir}/pkgconfig/libodp-linux.* \
 "
-FILES_${PN}-helper += " \
+FILES:${PN}-helper += " \
 	${libdir}/libodphelper-linux.so.* \
 "
-FILES_${PN} += " \
+FILES:${PN} += " \
 	${libdir}/libodp-linux.so.* \
 "
-FILES_${PN}-ptest-dbg = " \
+FILES:${PN}-ptest-dbg = " \
 	${exec_prefix}/src/debug/${PN}/${PV}-${PR}/git/test/* \
 	${libdir}/odp/ptest/test/.debug/* \
 "
-FILES_${PN}-helper-dbg = " \
+FILES:${PN}-helper-dbg = " \
 	${libdir}/.debug/libodphelper-linux.so* \
 	${exec_prefix}/src/debug/${PN}/${PV}-${PR}/git/helper/* \
 "
-FILES_${PN}-dbg = " \
+FILES:${PN}-dbg = " \
 	${libdir}/.debug/libodp-linux.so* \
 	${exec_prefix}/src/debug/${PN}/${PV}-${PR}/git/include/* \
 	${exec_prefix}/src/debug/${PN}/${PV}-${PR}/git/platform/* \
 "
 
-RDEPENDS_${PN} = "bash libcrypto"
-RDEPENDS_${PN}-ptest = "bash cunit"
+RDEPENDS:${PN} = "bash libcrypto"
+RDEPENDS:${PN}-ptest = "bash cunit"

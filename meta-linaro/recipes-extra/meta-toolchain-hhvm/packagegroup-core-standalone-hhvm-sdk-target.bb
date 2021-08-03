@@ -3,7 +3,7 @@ LICENSE = "MIT"
 
 inherit packagegroup
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     packagegroup-core-standalone-sdk-target \
     binutils-dev \
     binutils-staticdev \

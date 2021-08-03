@@ -33,7 +33,7 @@ ${EXTRA_DEPENDS} \
 
 # optional (for now) dependencies:
 EXTRA_DEPENDS = "gperftools"
-EXTRA_DEPENDS_aarch64 = ""
+EXTRA_DEPENDS:aarch64 = ""
 
 # 64-bit platforms only
 COMPATIBLE_HOST = '(x86_64.*|aarch64.*)-linux'
@@ -54,7 +54,7 @@ PV = "2.0.2+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	export HPHP_HOME="${B}"
 	export HPHP_LIB="${B}"/bin
 	export USE_HHVM=1

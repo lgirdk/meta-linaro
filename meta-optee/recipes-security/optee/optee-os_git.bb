@@ -29,8 +29,8 @@ EXTRA_OEMAKE = "PLATFORM=${OPTEEMACHINE} CFG_ARM64_core=y \
                 LIBGCC_LOCATE_CFLAGS=--sysroot=${STAGING_DIR_HOST} \
         "
 
-OPTEE_ARCH_armv7a = "arm32"
-OPTEE_ARCH_aarch64 = "arm64"
+OPTEE_ARCH:armv7a = "arm32"
+OPTEE_ARCH:aarch64 = "arm64"
 
 do_compile() {
     unset LDFLAGS
@@ -61,9 +61,9 @@ do_deploy() {
 
 addtask deploy before do_build after do_install
 
-FILES_${PN} = "${nonarch_base_libdir}/firmware/"
-FILES_${PN}-dev = "/usr/include/optee"
+FILES:${PN} = "${nonarch_base_libdir}/firmware/"
+FILES:${PN}-dev = "/usr/include/optee"
 
-INSANE_SKIP_${PN}-dev = "staticdev"
+INSANE_SKIP:${PN}-dev = "staticdev"
 
 INHIBIT_PACKAGE_STRIP = "1"

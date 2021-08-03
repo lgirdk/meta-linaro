@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://GPL.txt;md5=751419260aa954499f7abaabaa882bbe"
 
 SRC_URI += "file://fix-dump.patch"
 
-do_compile_prepend() {
+do_compile:prepend() {
 	oe_runmake CC="${BUILD_CC}" \
 		CFLAGS="${BUILD_CFLAGS} -I${S}/../libdwarf/ -I." \
 		LDFLAGS="${BUILD_LDFLAGS} -ldwarf -lelf" NATIVE=1

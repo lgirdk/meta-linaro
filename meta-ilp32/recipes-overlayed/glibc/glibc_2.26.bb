@@ -45,7 +45,7 @@ SRC_URI = "${GLIBC_GIT_URI};branch=${SRCBRANCH};name=glibc \
 "
 
 NATIVESDKFIXES ?= ""
-NATIVESDKFIXES_class-nativesdk = "\
+NATIVESDKFIXES:class-nativesdk = "\
            file://0001-nativesdk-glibc-Look-for-host-system-ld.so.cache-as-.patch \
            file://0002-nativesdk-glibc-Fix-buffer-overrun-with-a-relocated-.patch \
            file://0003-nativesdk-glibc-Raise-the-size-of-arrays-containing-.patch \
@@ -66,7 +66,7 @@ GLIBC_BROKEN_LOCALES = ""
 # We will skip parsing glibc when target system C library selection is not glibc
 # this helps in easing out parsing for non-glibc system libraries
 #
-COMPATIBLE_HOST_libc-musl_class-target = "null"
+COMPATIBLE_HOST:libc-musl:class-target = "null"
 
 EXTRA_OECONF = "--enable-kernel=${OLDEST_KERNEL} \
                 --without-cvs --disable-profile \
@@ -87,7 +87,7 @@ EXTRA_OECONF += "${@get_libc_fpu_setting(bb, d)}"
 EXTRA_OECONF += "${@bb.utils.contains('DISTRO_FEATURES', 'libc-inet-anl', '--enable-nscd', '--disable-nscd', d)}"
 
 
-do_patch_append() {
+do_patch:append() {
     bb.build.exec_func('do_fix_readlib_c', d)
 }
 
@@ -140,7 +140,7 @@ do_compile () {
 
 # Use the host locale archive when built for nativesdk so that we don't need to
 # ship a complete (100MB) locale set.
-do_compile_prepend_class-nativesdk() {
+do_compile:prepend:class-nativesdk() {
     echo "complocaledir=/usr/lib/locale" >> ${S}/configparms
 }
 

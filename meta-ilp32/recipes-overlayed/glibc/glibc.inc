@@ -3,8 +3,8 @@ require glibc-ld.inc
 require glibc-testing.inc
 
 STAGINGCC = "gcc-cross-initial-${TARGET_ARCH}"
-STAGINGCC_class-nativesdk = "gcc-crosssdk-initial-${SDK_SYS}"
-PATH_prepend = "${STAGING_BINDIR_TOOLCHAIN}.${STAGINGCC}:"
+STAGINGCC:class-nativesdk = "gcc-crosssdk-initial-${SDK_SYS}"
+PATH:prepend = "${STAGING_BINDIR_TOOLCHAIN}.${STAGINGCC}:"
 
 python () {
     opt_effective = "-O"
@@ -25,7 +25,7 @@ python () {
 # Here we create a hacked up libc linker script and pass in the right
 # flags to let configure work. Ugly.
 EXTRASITECONFIG = "CFLAGS='${CFLAGS} -Wl,-L${WORKDIR}/site_config_libc -L${WORKDIR}/site_config_libc -L${SYSROOT_DESTDIR}${libdir} -L${SYSROOT_DESTDIR}${base_libdir} -Wl,-L${SYSROOT_DESTDIR}${libdir} -Wl,-L${SYSROOT_DESTDIR}${base_libdir}'"
-siteconfig_do_siteconfig_gencache_prepend = " \
+siteconfig_do_siteconfig_gencache:prepend = " \
 	mkdir -p ${WORKDIR}/site_config_libc; \
 	cp ${SYSROOT_DESTDIR}${libdir}/libc.so ${WORKDIR}/site_config_libc; \
 	sed -i -e 's# ${base_libdir}# ${SYSROOT_DESTDIR}${base_libdir}#g' -e 's# ${libdir}# ${SYSROOT_DESTDIR}${libdir}#g' ${WORKDIR}/site_config_libc/libc.so; \
@@ -51,7 +51,7 @@ CACHED_CONFIGUREVARS += " \
 "
 
 GLIBC_EXTRA_OECONF ?= ""
-GLIBC_EXTRA_OECONF_class-nativesdk = ""
+GLIBC_EXTRA_OECONF:class-nativesdk = ""
 INHIBIT_DEFAULT_DEPS = "1"
 
 # This needs to match with glibc-collateral.inc, otherwise glibc-scripts and glibc-locale
@@ -71,14 +71,14 @@ PARALLEL_MAKE = ""
 # ensure make uses /bin/bash
 EXTRA_OEMAKE += "SHELL=/bin/bash"
 
-do_configure_prepend() {
+do_configure:prepend() {
 	sed -e "s#@BASH@#/bin/sh#" -i ${S}/elf/ldd.bash.in
 }
 
 GLIBC_ADDONS ?= "nptl,libidn"
 
 # Enable backtrace from abort()
-do_configure_append_arm () {
+do_configure:append:arm () {
 	echo "CFLAGS-abort.c = -fasynchronous-unwind-tables" >> ${B}/configparms
 	echo "CFLAGS-raise.c = -fasynchronous-unwind-tables" >> ${B}/configparms
 }

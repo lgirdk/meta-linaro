@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/COPYING;md5=ed1dca40ee0852c630f19c06fdecf6
 inherit deploy
 
 DEFAULT_PREFERENCE = "-1"
-DEFAULT_PREFERENCE_arm = "1"
+DEFAULT_PREFERENCE:arm = "1"
 
 PV = "2.00-prebuilt"
 
@@ -25,6 +25,6 @@ do_deploy() {
     cp -a ${B}/grubaa64.efi ${DEPLOYDIR}
 }
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 addtask deploy before do_build after do_install

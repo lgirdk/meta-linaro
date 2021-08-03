@@ -20,9 +20,9 @@ SRC_URI = "\
 "
 
 PACKAGES =+ "auto-console-login"
-RDEPENDS_${PN} = "auto-console-login"
+RDEPENDS:${PN} = "auto-console-login"
 
-FILES_auto-console-login = "\
+FILES:auto-console-login = "\
 	${bindir}/auto-root-login \
 	${sysconfdir}/init.d/auto-console-login \
 "
@@ -30,8 +30,8 @@ FILES_auto-console-login = "\
 S = "${WORKDIR}"
 
 INITSCRIPT_PACKAGES = "${PN} auto-console-login"
-INITSCRIPT_NAME_auto-serial-console = "auto-serial-console"
-INITSCRIPT_NAME_auto-console-login = "auto-console-login"
+INITSCRIPT_NAME:auto-serial-console = "auto-serial-console"
+INITSCRIPT_NAME:auto-console-login = "auto-console-login"
 INITSCRIPT_PARAMS = "start 99 5 ."
 
 do_install () {

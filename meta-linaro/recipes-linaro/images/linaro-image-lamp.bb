@@ -12,7 +12,7 @@ IMAGE_INSTALL += " \
     ${SDK_IMAGE_INSTALL}"
 
 # Grub doesn't build for armv7a/hf
-IMAGE_INSTALL_remove_armv7a = "grub"
+IMAGE_INSTALL:remove:armv7a = "grub"
 
 IMAGE_FEATURES += "\
 	dev-pkgs \

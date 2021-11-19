@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4ccfa994aa96974cfcd39a59faee20a2"
 
 DEPENDS = "openssl cunit libpcap"
 
-SRC_URI = "git://git.linaro.org/lng/odp.git;name=odp"
+SRC_URI = "git://git.linaro.org/lng/odp.git;name=odp;branch=master"
 
 SRCREV_odp = "693cabe510094121dcac58fed2672b6c67320f7d"
 SRCREV_FORMAT = "odp"

@@ -9,7 +9,7 @@ SRCREV = "fddc9ea644ee7d05c439ef7cdecbe20da63cdce3"
 PV = "0.0.2.20130101+git${SRCPV}"
 PR = "r1"
 
-SRC_URI = "git://git.linaro.org/pkg/arndale-pre-boot.git"
+SRC_URI = "git://git.linaro.org/pkg/arndale-pre-boot.git;branch=master"
 
 S = "${WORKDIR}/git"
 

@@ -59,8 +59,8 @@ IMAGE_FEATURES += "\
     tools-debug \
     tools-sdk \
     "
-IMAGE_FSTYPES:append:qemux86 += "cpio.gz qcow2"
-IMAGE_FSTYPES:append:qemux86-64 += "cpio.gz qcow2"
+IMAGE_FSTYPES:append:qemux86 = " cpio.gz qcow2"
+IMAGE_FSTYPES:append:qemux86-64 = " cpio.gz qcow2"
 IMAGE_FSTYPES_lng-x86-64 = "tar.gz cpio.gz"
 IMAGE_FSTYPES_lng-rt-x86-64 = "tar.gz cpio.gz"
 

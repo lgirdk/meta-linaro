@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2713c79cde0756d6a56337304277b711"
 DEPENDS = "odp daq"
 PV = "20140828+git${SRCPV}"
 
-SRC_URI = "git://github.com/muvarov/daq-odp.git"
+SRC_URI = "git://github.com/muvarov/daq-odp.git;protocol=https;branch=master"
 SRCREV = "c1dafe0ce4ea93401726ac53b3d129bb89b634ff"
 SRCREV_FORMAT = "daq-odp"
 

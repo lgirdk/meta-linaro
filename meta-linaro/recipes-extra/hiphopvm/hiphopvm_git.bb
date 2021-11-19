@@ -44,7 +44,7 @@ LIC_FILES_CHKSUM = " \
 		file://LICENSE.PHP;md5=cb564efdf78cce8ea6e4b5a4f7c05d97 \
 		file://LICENSE.ZEND;md5=69e7a9c51846dd6692f1b946f95f6c60"
 
-SRC_URI = "git://github.com/facebook/hhvm.git \
+SRC_URI = "git://github.com/facebook/hhvm.git;protocol=https;branch=master \
            file://hrw-check-for-libdwarf-in-our-place-first.patch \
            "
 
